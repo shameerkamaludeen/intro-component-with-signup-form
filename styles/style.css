@@ -1,0 +1,297 @@
+/* || General style rules */
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+  
+/* This as the class implies hide the lement visually */
+.hide-visually {
+    font-size: 0;
+    width: 1px;
+    height: 1px;
+    display: inline-block;
+    overflow: hidden;
+    position: absolute!important;
+    border: 0!important;
+    padding: 0!important;
+    margin: 0!important;
+    clip: rect(1px,1px,1px,1px);
+}
+
+/* || Typography */
+
+h1 {
+    color: hsl(0, 100%, 74%) ; /* Red */
+    color: hsl(154, 59%, 51%); /* Green */
+    color: hsl(248, 32%, 49%); /* Blue */
+    color: hsl(249, 10%, 26%); /* Dark Blue */
+    color: hsl(246, 25%, 77%); /* Grayish Blue */
+}
+
+body {
+    letter-spacing: 0.2px;
+    font-size: 10px;
+    line-height: 1.5;
+    word-spacing: 0.8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: url(../images/bg-intro-mobile.png) left top, 
+    /* background: fixed url(../images/bg-intro-mobile.png) center top / 100% auto no-repeat,  */
+    hsl(0, 100%, 74%);
+}
+
+.section-signup h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-align: center;
+    color: white;
+}
+
+.section-signup .wrapper-desc p {
+    font-size: 1rem;
+    color: white;
+    text-align: center;
+}
+
+.section-signup .wrapper-offer span {
+    font-size: 1rem;
+    color: white;
+}
+
+.section-signup .wrapper-offer span b {
+    font-weight: 600;
+}
+
+.section-signup form input {
+    font-size: 0.875rem;
+    color: black;
+    font-weight: 500;
+}
+
+.section-signup form input::placeholder {
+    color: hsl(249, 10%, 26%);
+}
+
+.section-signup form button {
+    background-color: hsl(154, 59%, 51%);
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.section-signup form > p {
+    color: hsl(246, 25%, 77%);
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.section-signup form > p a {
+    font-size: 0.75rem;
+    outline: none;
+    text-decoration: none;
+}
+
+.section-signup form > p a:link {
+    color: hsl(0, 100%, 74%);
+}
+
+.section-signup form > p a:visited, 
+.section-signup form > p a:active {
+    color: hsl(0, 98%, 65%);
+}
+
+.section-signup form > p a:focus, 
+.section-signup form > p a:hover {
+    border-bottom: 1px solid hsl(246, 25%, 77%);
+    color: hsl(0, 90%, 80%);
+    transition: border-bottom 0.2s;
+}
+
+/* || Layout */
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer {
+    flex: 0;
+}
+
+/* || Section signup */
+
+.section-signup {
+    margin: 9.5em auto 6.5em;
+    width: 88%;
+    max-width: 45em;
+}
+
+.section-signup .wrapper-offer {
+    margin: 6.5em 0 2.5em;
+    padding: 2em 4em;
+    text-align: center;
+    background-color: hsl(248, 32%, 49%);
+    box-shadow: 0 8px 0 rgb(0 0 0 / 16%);
+    border-radius: 10px;
+}
+
+.section-signup form {
+    background-color: white;
+    padding: 2.3em;
+    border-radius: 10px;
+    box-shadow: 0 8px 0 rgb(0 0 0 / 16%);
+}
+
+.section-signup form ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.section-signup form li:not(.button) {
+    position: relative;
+}
+
+.section-signup form li + li {
+    margin-top: 1.6em;
+}
+
+.section-signup form li input {
+    display: block;
+    width: 100%;
+    border: 1px solid hsl(246, 25%, 77%);
+    padding: 1.25em;
+    border-radius: 5px;
+}
+
+.section-signup form li input:focus {
+    border-color: black;
+    outline: none;
+}
+
+.section-signup form li input:focus:invalid, 
+.section-signup form li input.active {
+    border-color: hsl(0, 100%, 74%);
+}
+
+.section-signup form li span.error {
+    display: none;
+}
+
+.section-signup form li span.error.active {
+    display: block;
+    width: 100%;
+    color: hsl(0, 100%, 74%);
+    font-size: 0.75rem;
+    text-align: right;
+    font-style: italic;
+}
+
+.section-signup form .wrapper-errorimg {
+    display: none;
+}
+
+.section-signup form .wrapper-errorimg img {
+    width: 100%;
+    height: 100%;
+}
+
+.section-signup form .wrapper-errorimg.active {
+    display: block;
+    position: absolute;
+    top: 1.4em;
+    right: 2.5em;
+}
+
+.section-signup form li button {
+    width: 100%;
+    padding: 1.25em;
+    border-radius: 5px;
+    box-shadow: inset 0 -3px 0 rgb(0 0 0 / 10%);
+    border: 0;
+    letter-spacing: 1.5px;
+}
+
+.section-signup form li button:hover {
+    opacity: 65%;
+}
+
+/* || Footer */
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+@media screen and (min-width: 48.0625em) {
+    
+    /* || Typography */
+    
+    .section-signup h2 {
+        text-align: initial;
+    }
+
+    .section-signup .wrapper-desc p {
+        text-align: initial;
+    }
+    /* || Secton signup */
+    
+    .section-signup {
+        max-width: 111em;        
+        display: flex;
+        align-items: center;
+    }
+
+    .section-signup .wrapper-desc, 
+    .section-signup .wrapper-signup {
+        flex: 1 1 47%;
+    }
+
+    .section-signup .wrapper-desc {
+        margin-right: 6%;
+    }
+
+    .section-signup .wrapper-offer {
+        margin-top: 0;
+    }
+
+}
+
+
+@media screen and (min-width: 62em) {
+    
+    /* || Typography */
+    
+    .section-signup h2 {
+        font-size: 3.125rem;
+        margin: 0.6em 0;
+        line-height: 1.2;
+    }
+
+    /* || Section signup */
+
+    .section-signup form {
+        padding: 4em;
+    }
+        
+    .section-signup form li + li {
+        margin-top: 2em;
+    }
+}
