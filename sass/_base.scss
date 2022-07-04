@@ -1,0 +1,310 @@
+@use 'sass:color';
+
+// Variables starts
+
+// font
+$font-family-poppins: 'Poppins', sans-serif;
+
+// color
+$bc-primary: hsl(0, 100%, 74%);
+$bc-primary-bright: hsl(0, 98%, 65%);
+$bc-primary-light: hsl(0, 90%, 80%);
+$bc-secondary: hsl(248, 32%, 49%);
+$bc-neutral: hsl(154, 59%, 51%);
+
+$c-primary: hsl(0, 0%, 100%);
+$c-secondary: hsl(0, 0%, 0%);
+$c-neutral: hsl(246, 25%, 77%);
+$c-neutral-darker: hsl(249, 10%, 26%);
+
+// variables ends
+
+// placeholders
+
+%center-white {
+    color: $c-primary;
+    text-align: center;
+}
+
+// General
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+.hide-visually {
+    font-size: 0;
+    width: 1px;
+    height: 1px;
+    display: inline-block;
+    overflow: hidden;
+    position: absolute !important;
+    border: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+// typography
+
+body {
+    font-size: 10px;
+    font-family: $font-family-poppins;
+    font-weight: 400;
+    background: url(../images/bg-intro-mobile.png) left top,
+        $bc-primary;
+    line-height: 1.5;
+}
+
+h2 {
+    @extend %center-white;
+    font-size: 1.875rem;
+    font-weight: 700;
+}
+
+.section-signup .wrapper-desc p {
+    @extend %center-white;
+    font-size: 1rem;
+}
+
+.section-signup .wrapper-offer {
+    span {
+        font-size: 1rem;
+        color: $c-primary;
+
+        b {
+            font-weight: 600;
+        }
+    }
+}
+
+.section-signup form {
+
+    input,
+    button {
+        font-weight: 500;
+        font-size: 0.875rem;
+    }
+
+    input {
+        font-family: $font-family-poppins;
+        color: $c-secondary;
+
+        &::placeholder {
+            color: $c-neutral-darker;
+        }
+    }
+
+    button {
+        background-color: $bc-neutral;
+        color: $c-primary;
+        text-transform: uppercase;
+    }
+
+    p {
+        color: $c-neutral;
+        font-size: 0.75rem;
+        text-align: center;
+
+        a {
+            outline: none;
+            text-decoration: none;
+            color: $bc-primary;
+
+            &:visited,
+            &:active {
+                color: $bc-primary-bright;
+            }
+
+            &:focus,
+            &:hover {
+                border-bottom: 1px solid $c-neutral;
+                color: $bc-primary-light;
+                transition: border-bottom 0.2s;
+            }
+        }
+    }
+}
+
+// || section signup
+
+.section-signup {
+    margin: 9.5em auto 6.5em;
+    width: 88%;
+    max-width: 45em;
+
+    .wrapper-offer {
+        margin: 6.5em 0 2.5em;
+        padding: 2em 4em;
+        text-align: center;
+        background-color: $bc-secondary;
+        box-shadow: 0 8px 0 color.adjust($c-secondary, $alpha: -0.84);
+        border-radius: 10px;
+    }
+
+    form {
+        background-color: $c-primary;
+        padding: 2.3em;
+        border-radius: 10px;
+        box-shadow: 0 8px 0 color.adjust($c-secondary, $alpha: -0.84);
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+
+            %border-error-color {
+                border-color: $bc-primary;
+            }
+
+            &:not(.button) {
+                position: relative;
+            }
+
+            +li {
+                margin-top: 1.6em;
+            }
+
+            input {
+                display: block;
+                width: 100%;
+                border: 1px solid $c-neutral;
+                padding: 1.25em;
+                border-radius: 5px;
+
+                &:focus {
+                    border-color: $c-secondary;
+                    outline: none;
+
+                    &:invalid {
+                        @extend %border-error-color;
+                    }
+                }
+            }
+
+            &.error {
+                input {
+                    @extend %border-error-color;
+                }
+
+                span {
+                    &.error {
+                        @extend %border-error-color;
+
+                        display: block;
+                        width: 100%;
+                        font-size: 0.75rem;
+                        text-align: right;
+                        font-style: italic;
+                    }
+                }
+
+                .wrapper-errorimg {
+                    display: block;
+                    position: absolute;
+                    top: 1.4em;
+                    right: 2.5em;
+                }
+            }
+
+            span {
+                &.error {
+                    display: none;
+                }
+            }
+
+            button {
+                width: 100%;
+                padding: 1.25em;
+                border-radius: 5px;
+                // box-shadow: inset 0 -3px 0 rgb(0 0 0 / 10%);
+                box-shadow: inset 0 -3px 0 color.adjust($c-secondary, $alpha: -0.9);
+                border: 0;
+                letter-spacing: 1.5px;
+
+                &:hover {
+                    opacity: 65%;
+                }
+            }
+
+        }
+
+        .wrapper-errorimg {
+            display: none;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 48.0625em) {
+
+    %text-align-initial {
+        text-align: initial;
+    }
+
+    h2 {
+        @extend %text-align-initial;
+    }
+
+    // Typography
+
+    .section-signup {
+        .wrapper-desc {
+            p {
+                @extend %text-align-initial;
+            }
+        }
+    }
+
+    /* || Secton signup */
+
+    .section-signup {
+        max-width: 111em;
+        display: flex;
+        align-items: center;
+
+        .wrapper-desc,
+        .wrapper-signup {
+            flex: 1 1 47%;
+        }
+
+        .wrapper-desc {
+            margin-right: 6%;
+        }
+
+        .wrapper-offer {
+            margin-top: 0;
+        }
+    }
+}
+
+@media screen and (min-width: 62em) {
+
+    /* || Typography */
+
+    h2 {
+        font-size: 3.125rem;
+        margin: 0.6em 0;
+        line-height: 1.2;
+    }
+
+    .section-signup {
+
+        form {
+            padding: 4em;
+
+            li+li {
+                margin-top: 2em;
+            }
+        }
+    }
+}
